@@ -1,15 +1,39 @@
 package main
-import ("fmt"
-    "os")
+import (
+	"fmt"
+    "encoding/json"
+    "os"
+)
 func main(){
-
-
-	file, err := os.OpenFile("example.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0777)
-if err != nil {
-fmt.Println("Error opening file:", err)
-return
+		book1:=book{
+		auther: "Shodmon",
+		title: "30",
+	}
+		data,err:=Json.Marshal(book)
+		if err!=nil{
+		return fmt.Print(err)
+	}
+     
+     fmt.Println(data)
+	 
 }
-defer file.Close()
-fmt.Println("File opened successfully")
 
-}
+//func countCharacters(fileName string) (int, error){
+
+	//file, err := os.Open("example.txt")
+	//if err != nil {
+	//fmt.Println("ощибка ", err)
+	//return
+	//}
+	//defer file.Close()
+
+
+//}
+
+
+type book struct{
+	title string
+	auther string
+} 
+
+
